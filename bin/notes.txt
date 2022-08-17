@@ -1,3 +1,8 @@
+ 
+aws sdk for handling s3 bucket creation
+
  npm install @aws-sdk/client-s3
 
- 
+aws credentials for handling s3 bucket
+
+npm install @aws-sdk/credential-providers
