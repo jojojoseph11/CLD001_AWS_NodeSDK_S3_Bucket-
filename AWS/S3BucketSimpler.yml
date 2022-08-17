@@ -5,4 +5,8 @@ Resources:
     Type: AWS::S3::Bucket
     DeletionPolicy: Retain
     Properties:
-      BucketName: training66bducksfbvasdjkbfhasdjbfet11jojo
+      BucketName: factweavers-aws-training-s3-bucket-jojo
+
+
+
+# Bucket NAme should be globally unique 

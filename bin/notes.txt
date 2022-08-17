@@ -1,4 +1,6 @@
- 
+AWS Notes : https://docs.google.com/presentation/d/1strVxkx1FBUxFYxaxFU8x8gVoezakJps83cyDLHD-jg/edit#slide=id.gb47eed045a_0_631 
+
+
 aws sdk for handling s3 bucket creation
 
  npm install @aws-sdk/client-s3
@@ -6,3 +8,10 @@ aws sdk for handling s3 bucket creation
 aws credentials for handling s3 bucket
 
 npm install @aws-sdk/credential-providers
+
+
+
+AWS S3 Bucket Cloud formatation 
+
+
+ aws cloudformation create-stack --stack-name s3-cloud-formation-training-jojo --template-body file://AWS/S3BucketSimpler.yml

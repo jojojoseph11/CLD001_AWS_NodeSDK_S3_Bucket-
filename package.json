@@ -18,7 +18,9 @@
   "homepage": "https://bitbucket.org/Weavers/tr_aws_cld001#readme",
   "dependencies": {
     "@aws-sdk/client-s3": "^3.150.0",
-    "@aws-sdk/credential-providers": "^3.150.0"
-  },
-  "type": "module"
+    "@aws-sdk/credential-providers": "^3.150.0",
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "express-fileupload": "^1.4.0"
+  }
 }
