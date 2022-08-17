@@ -1,4 +1,5 @@
 const fs = require('fs');
+//Load environment variables from .env file https://www.npmjs.com/package/dotenv
 require('dotenv').config();
 const S3 = require('aws-sdk/clients/s3');
 const bucketName = process.env.AWS_BUCKET_NAME;
