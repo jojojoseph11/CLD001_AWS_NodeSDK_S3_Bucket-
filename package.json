@@ -1,0 +1,24 @@
+{
+  "name": "tr_aws_cld001-1",
+  "version": "1.0.0",
+  "description": "Hands on CLD001 - AWS Basics - Day 1 Handson",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://jojojoseph11@bitbucket.org/Weavers/tr_aws_cld001.git"
+  },
+  "author": "jojo.joseph@factweavers.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://bitbucket.org/Weavers/tr_aws_cld001/issues"
+  },
+  "homepage": "https://bitbucket.org/Weavers/tr_aws_cld001#readme",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.150.0",
+    "@aws-sdk/credential-providers": "^3.150.0"
+  },
+  "type": "module"
+}
