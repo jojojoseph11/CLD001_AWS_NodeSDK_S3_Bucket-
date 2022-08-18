@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 const fhUpload = require('../handler/functions');
 
+router.get('/status', async function(req, res) {res.send('Factweavers service is up and running')})
 router.post('/uploadImage', fhUpload.uploadImage);
 router.get('/getImage', fhUpload.getImage);
 router.get('/listAllImage', fhUpload.listAllImage);

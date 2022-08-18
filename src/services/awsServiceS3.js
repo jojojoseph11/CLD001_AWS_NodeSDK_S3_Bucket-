@@ -9,6 +9,7 @@ const params = {
     Body: "Hello World", // The content of the object. For example, 'Hello world!".
 };
 
+// Create an Amazon S3 bucket.
 async function createS3Bucket() {
     // Create an Amazon S3 bucket.
     try {
@@ -23,21 +24,8 @@ async function createS3Bucket() {
     }
 }
 
-//createS3Bucket();
-
+// Create an object and upload it to the Amazon S3 bucket.
 const run = async () => {
-    // Create an Amazon S3 bucket.
-    try {
-        const data = await s3Client.send(
-            new CreateBucketCommand({ Bucket: params.Bucket })
-        );
-        console.log(data);
-        console.log("Successfully created a bucket called ", data.Location);
-        return data; // For unit tests.
-    } catch (err) {
-        console.log("Error", err);
-    }
-    // Create an object and upload it to the Amazon S3 bucket.
     try {
         const results = await s3Client.send(new PutObjectCommand(params));
         console.log(
@@ -53,4 +41,3 @@ const run = async () => {
         console.log("Error", err);
     }
 };
-run();
