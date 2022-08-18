@@ -1,4 +1,4 @@
-const helper = require('../services/helper');
+const helper = require('../services/awsServiceS3');
 
 module.exports.uploadImage = async (req, res) => {
     try {

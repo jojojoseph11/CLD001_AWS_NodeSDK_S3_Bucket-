@@ -4,7 +4,6 @@ require('dotenv').config();   //.environment
 
 // Set the AWS Region.
 const REGION = process.env.REGION;
-const AWS_PROFILE = process.env.AWS_PROFILE;
 const AWS_S3_ACCESS_KEY_ID = process.env.AWS_S3_ACCESS_KEY_ID;
 const AWS_S3_SECRET_ACCESS_KEY = process.env.AWS_S3_SECRET_ACCESS_KEY;
 
@@ -17,3 +16,6 @@ const s3Client = new AWS.S3({
 })
 
 module.exports = { s3Client };
+
+
+//not used but need to test 
