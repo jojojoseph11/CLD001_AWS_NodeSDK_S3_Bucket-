@@ -117,21 +117,50 @@ this.serDeleteImage = async (req) => {
 
 }
 
+
+
 //Image permission
 this.changeImagePermission = async (req) => {
-    let parameter = {
-        Bucket: bucketName,
-        Key: req.name,
-        ACL: req.permission
+    if (req.permission === ReadGroupAllUsers) {
+        let parameter = {
+            Bucket: bucketName,
+            Key: req.name,
+            AccessControlPolicy: {
+                Owner: {
+                    DisplayName: 'Owner',
+                    ID: 'canonical_id',
+                },
+                Grants: [
+                    {
+                        Grantee: {
+                            Type: "CanonicalUser",
+                            DisplayName: 'Owner',
+                            ID: 'canonical_id',
+                        },
+                        Permission: "FULL_CONTROL"
+                    },
+                    {
+                        Grantee: {
+                            Type: "Group",
+                            URI: 'http://acs.amazonaws.com/groups/global/AllUsers',
+                        },
+                        Permission: "READ",
+                    }
+                ],
+            }
+        }
+        let response = S3Obj.putObjectAcl(parameter).promise();
+        return response.then(function (data) {
+            return data;
+
+        }).catch(function (err) {
+            return err;
+        });
+    } else {
+        return ('only ReadGroupAllUsers is defined ');
     }
 
-    let response = S3Obj.putObjectAcl(parameter).promise();
-    return response.then(function (data) {
-        return data;
 
-    }).catch(function (err) {
-        return err;
-    });
 
 }
 
