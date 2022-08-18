@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs'); //for __dirname
 //Load environment variables from .env file https://www.npmjs.com/package/dotenv
 require('dotenv').config();
 const S3 = require('aws-sdk/clients/s3');
