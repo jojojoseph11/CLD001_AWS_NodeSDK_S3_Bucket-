@@ -50,7 +50,7 @@ this.serGetUploadImage = async (file) => {
 }
 
 
-
+// Get a object based on the key  eg DSC_0096.jpg   req.name=DSC_0096.jpg 
 this.serGetImage = async (req) => {
     let parameter = {
         Bucket: bucketName,
@@ -69,7 +69,7 @@ this.serGetImage = async (req) => {
 
 }
 
-
+//Fetch a list of images upto 1000
 this.serListAllImage = async (req) => {
     let parameter = {
         Bucket: bucketName,
@@ -91,6 +91,9 @@ this.serListAllImage = async (req) => {
 
 }
 
+
+
+//Delete an object from image    expecting { "name" : "DSC_0096.jpg" }
 this.serDeleteImage = async (req) => {
     let parameter = {
         Bucket: bucketName,
@@ -114,6 +117,7 @@ this.serDeleteImage = async (req) => {
 
 }
 
+//Image permission
 this.changeImagePermission = async (req) => {
     let parameter = {
         Bucket: bucketName,
@@ -131,11 +135,14 @@ this.changeImagePermission = async (req) => {
 
 }
 
+//incase of upload failed
 this.deleteImageFromServer = (file) => {
     let uploadPath = __dirname + '/../../uploads/' + file.name;
     fs.unlinkSync(uploadPath);
 }
 
+
+//url
 this.serGetPublicUrl = async (key) => {
     let parameter = {
         Bucket: bucketName,

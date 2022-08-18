@@ -28,16 +28,19 @@ module.exports.uploadImage = async (req, res) => {
 
 
 
-
+// Get Image object based on the key  eg DSC_0096.jpg   req.name=DSC_0096.jpg 
 module.exports.getImage = async (req, res) => {
     try {
-        let response = await helper.serGetImage(req.query);
+        console.log(req);
+        let response = await helper.serGetImage(req.body);
+        console.log("Sucessfully Fetched : ", req.name);
         res.send(response);
     } catch (error) {
         console.log("ImageHandler getImageError", error);
     }
 };
 
+//Listing all images 
 module.exports.listAllImage = async (req, res) => {
     try {
         let response = await helper.serListAllImage(req.query);
@@ -47,15 +50,18 @@ module.exports.listAllImage = async (req, res) => {
     }
 };
 
+//Delete image from bucket { "name" : "DSC_0096.jpg" }
 module.exports.deleteImage = async (req, res) => {
     try {
-        let response = await helper.serDeleteImage(req.query);
+        let response = await helper.serDeleteImage(req.body);
         res.send(response);
     } catch (error) {
         console.log("ImageHandler deleteImage Error", error);
     }
 };
 
+
+// Image Permission 
 module.exports.changeImagePermission = async (req, res) => {
     try {
         let response = await helper.changeImagePermission(req.query);
@@ -66,6 +72,7 @@ module.exports.changeImagePermission = async (req, res) => {
     }
 };
 
+//Get URL  query query prams  -->  key :  profile.jpg localhost:3000/api/getPublicUrl?key=profile.jpg
 module.exports.getPublicUrl = async (req, res) => {
     try {
         let response = await helper.serGetPublicUrl(req.query.key);
