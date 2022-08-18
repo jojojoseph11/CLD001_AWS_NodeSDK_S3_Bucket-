@@ -1,13 +1,11 @@
-// Import required AWS SDK clients and commands for Node.js.
-import { PutObjectCommand, CreateBucketCommand } from "@aws-sdk/client-s3";
+const fs = require('fs'); //for __dirname
+//Load environment variables from .env file https://www.npmjs.com/package/dotenv
+require('dotenv').config();
 import { s3Client } from "./libs/awsClient.js";
 
-// Set the parameters
-const params = {
-    Bucket: "samplebucket10182", // The name of the bucket. For example, 'sample_bucket_101'.
-    Key: "sample_upload.txt", // The name of the object. For example, 'sample_upload.txt'.
-    Body: "Hello World", // The content of the object. For example, 'Hello world!".
-};
+
+const bucketName = process.env.AWS_BUCKET_NAME;
+
 
 // Create an Amazon S3 bucket.
 async function createS3Bucket() {
@@ -41,3 +39,5 @@ const run = async () => {
         console.log("Error", err);
     }
 };
+
+

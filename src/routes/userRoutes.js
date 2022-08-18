@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const fhUpload = require('../handler/functions');
+const fhUpload = require('../handler/imageHandler');
 
 router.get('/status', async function (req, res) {
     res.statusCode = 200;

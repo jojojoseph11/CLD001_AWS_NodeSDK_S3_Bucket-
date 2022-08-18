@@ -5,6 +5,7 @@ const S3 = require('aws-sdk/clients/s3');
 const bucketName = process.env.AWS_BUCKET_NAME;
 const S3Obj = new S3({});
 
+// Create an file to be uploaded to S3
 this.saveImage = (file) => {
 
     let uploadPath = __dirname + '/../../uploads/' + file.name;
@@ -19,24 +20,27 @@ this.saveImage = (file) => {
         })
 };
 
-
+// Upload the file to S3
 this.serGetUploadImage = async (file) => {
 
     let uploadPath = __dirname + '/../../uploads/' + file.name;
     let reader = fs.createReadStream(uploadPath);
-
-    //fs.unlinkSync(uploadPath);
-
     let parameter = {
         Bucket: bucketName,
         Body: reader,
         Key: file.name
 
     }
-
-
     let response = S3Obj.putObject(parameter).promise();
     return response.then(function (data) {
+        console.log(
+            "Successfully created " +
+            { data } +
+            " and uploaded it to " +
+            parameter.Bucket +
+            "/" +
+            parameter.Key
+        );
         return data;
 
     }).catch(function (err) {
@@ -56,6 +60,7 @@ this.serGetImage = async (req) => {
 
     let response = S3Obj.getObject(parameter).promise();
     return response.then(function (data) {
+
         return data;
 
     }).catch(function (err) {
@@ -74,6 +79,10 @@ this.serListAllImage = async (req) => {
 
     let response = S3Obj.listObjectsV2(parameter).promise();
     return response.then(function (data) {
+        console.log(
+            "Successfully fetched " +
+            data
+        );
         return data;
 
     }).catch(function (err) {
@@ -140,7 +149,7 @@ this.serGetPublicUrl = async (key) => {
     }).catch(function (err) {
         return err;
     });
-      
+
 
 
 }

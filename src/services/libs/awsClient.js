@@ -1,5 +1,3 @@
-// import { S3Client } from "@aws-sdk/client-s3";
-// import { fromIni } from "@aws-sdk/credential-providers";
 const AWS = require('aws-sdk'); //import all
 require('dotenv').config();   //.environment  
 
