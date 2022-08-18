@@ -121,24 +121,12 @@ this.serDeleteImage = async (req) => {
 
 //Image permission
 this.changeImagePermission = async (req) => {
-    if (req.permission === ReadGroupAllUsers) {
+    if (req.permission == "ReadGroupAllUsers") {
         let parameter = {
             Bucket: bucketName,
             Key: req.name,
             AccessControlPolicy: {
-                Owner: {
-                    DisplayName: 'Owner',
-                    ID: 'canonical_id',
-                },
                 Grants: [
-                    {
-                        Grantee: {
-                            Type: "CanonicalUser",
-                            DisplayName: 'Owner',
-                            ID: 'canonical_id',
-                        },
-                        Permission: "FULL_CONTROL"
-                    },
                     {
                         Grantee: {
                             Type: "Group",
