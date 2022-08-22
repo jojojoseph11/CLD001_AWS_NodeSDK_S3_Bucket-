@@ -1,5 +1,5 @@
 const AWS = require('aws-sdk'); //import all
-require('dotenv').config();   //.environment  
+require('dotenv').config({ path: "./vars/.env" });   //.environment  
 
 
 // Set the AWS Region.

@@ -1,6 +1,6 @@
 const app = require('express')();
 const routes = require('./src/routes');
-require('dotenv').config();   //.env
+require('dotenv').config({ path: "./vars/.env" });   //.env
 const fileUpload = require('express-fileupload'); // Simple express middleware for uploading files . https://www.npmjs.com/package/express-fileupload
 
 const bodyParser = require('body-parser'); // Node.js body parsing middleware. https://www.npmjs.com/package/body-parser
